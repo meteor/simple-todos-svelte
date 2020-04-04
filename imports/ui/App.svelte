@@ -4,6 +4,7 @@
   import { Tasks } from '../api/tasks.js'
   
   let newTask = "";
+  let hideCompleted = false;
 
   $: tasks = useTracker(() => Tasks.find({}, { sort: { createdAt: -1 } }).fetch());
 
