@@ -24,3 +24,4 @@ static-html
 accounts-ui
 accounts-password
 svelte:blaze-integration
+meteortesting:mocha
