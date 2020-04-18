@@ -24,6 +24,9 @@
       Meteor.call("tasks.remove", task._id);
   };
 
+  function togglePrivate() {
+    Meteor.call("tasks.setPrivate", task._id, !task.private);
+  }
 </script>
 
 <li class:checked="{task.checked}">
