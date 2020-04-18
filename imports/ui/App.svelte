@@ -1,4 +1,5 @@
 <script>
+  import { Meteor } from "meteor/meteor";
   import { useTracker } from 'meteor/rdb:svelte-meteor-data';  
   import { BlazeTemplate } from 'meteor/svelte:blaze-integration';
   import Task from './Task.svelte';
@@ -20,7 +21,9 @@
  function handleSubmit(event) {
       Tasks.insert({
         text: newTask,
-        createdAt: new Date() // current time
+        createdAt: new Date(), // current time
+        owner: Meteor.userId(), // _id of logged in user
+        username: Meteor.user().username // username of logged in user
       });
 
       // Clear form
