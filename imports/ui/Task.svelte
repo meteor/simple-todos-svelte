@@ -6,13 +6,11 @@
 
   function toggleChecked() {
       // Set the checked property to the opposite of its current value
-      Tasks.update(task._id, {
-        $set: { checked: !task.checked }
-      });
+      Meteor.call("tasks.setChecked", task._id, !task.checked);
   };
 
   function deleteThisTask() {
-      Tasks.remove(task._id);
+      Meteor.call("tasks.remove", task._id);
   };
 
 </script>
