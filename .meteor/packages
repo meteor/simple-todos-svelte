@@ -23,3 +23,5 @@ insecure@1.0.7                # Allow all DB writes from clients (for prototypin
 svelte:compiler
 rdb:svelte-meteor-data
 static-html
+accounts-ui
+accounts-password
