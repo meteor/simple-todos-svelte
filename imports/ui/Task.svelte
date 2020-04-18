@@ -38,6 +38,12 @@
     on:click={toggleChecked}
   />
 
+  {#if showPrivateButton}
+    <button className="toggle-private" on:click="{togglePrivate}">
+      { task.private ? "Private" : "Public" }
+    </button>
+  {/if}
+
   <span class="text">
     <strong>{ task.username }</strong>
     : { task.text }
