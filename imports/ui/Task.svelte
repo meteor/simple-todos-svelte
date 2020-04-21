@@ -27,9 +27,11 @@
   function togglePrivate() {
     Meteor.call("tasks.setPrivate", task._id, !task.private);
   }
+  
 </script>
 
-<li class:checked="{task.checked}">
+<li class:checked="{task.checked}"
+    class:private="{task.private}" >
   <button class="delete" on:click={deleteThisTask}>
     &times;
   </button>
