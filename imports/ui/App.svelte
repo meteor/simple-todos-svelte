@@ -1,23 +1,18 @@
 <script>
+  import { useTracker } from 'meteor/rdb:svelte-meteor-data';
   import Task from './Task.svelte';
+  import { Tasks } from '../api/tasks.js'
   
-  function getTasks() {
-      return [
-        { _id: 1, text: "This is task 1" },
-        { _id: 2, text: "This is task 2" },
-        { _id: 3, text: "This is task 3" }
-      ];
-    }
+  $: tasks = useTracker(() => Tasks.find({}).fetch());
 
 </script>
  
-
 <div class="container">
   <header>
     <h1>Todo List</h1>
   </header>
   <ul>
-  {#each getTasks() as task}
+  {#each $tasks as task}
     <Task
       key={task._id}
       task={task}
