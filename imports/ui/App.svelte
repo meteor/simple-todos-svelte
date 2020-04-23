@@ -6,6 +6,8 @@
   let newTask = "";
   let hideCompleted = false;
 
+  $: incompleteCount = useTracker(() => Tasks.find({ checked: { $ne: true } }).count()); 
+
   const taskStore = Tasks.find({}, { sort: { createdAt: -1 } });
   $: {
       tasks = $taskStore;
