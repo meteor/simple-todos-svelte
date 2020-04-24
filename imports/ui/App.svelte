@@ -22,6 +22,13 @@
 <div class="container">
   <header>
     <h1>Todo List</h1>
+    <label className="hide-completed">
+      <input
+        type="checkbox"
+        bind:checked={hideCompleted}
+      />
+      Hide Completed Tasks
+    </label>
     <form class="new-task" on:submit|preventDefault={handleSubmit}>
       <input
         type="text"
