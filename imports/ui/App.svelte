@@ -48,6 +48,7 @@
     
     <BlazeTemplate template="loginButtons" />
 
+    {#if $currentUser}
     <form class="new-task" on:submit|preventDefault={handleSubmit}>
       <input
         type="text"
@@ -55,6 +56,7 @@
         bind:value={newTask}
       />
     </form>
+    {/if}
   </header>
   <ul>
   {#each tasks as task}
