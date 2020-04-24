@@ -1,12 +1,18 @@
 <script>
-  import { useTracker } from 'meteor/rdb:svelte-meteor-data';
+  import { useTracker } from 'meteor/rdb:svelte-meteor-data';  
   import Task from './Task.svelte';
   import { Tasks } from '../api/tasks.js'
   
   let newTask = "";
   let hideCompleted = false;
 
-  $: tasks = useTracker(() => Tasks.find({}, { sort: { createdAt: -1 } }).fetch());
+  const taskStore = Tasks.find({}, { sort: { createdAt: -1 } });
+  $: {
+      tasks = $taskStore;
+      if (hideCompleted) {
+          tasks = tasks.filter(task => !task.checked);
+      }
+  };
 
  function handleSubmit(event) {
       Tasks.insert({
@@ -17,7 +23,6 @@
       // Clear form
       newTask = "";
   };
-
 </script>
  
 <div class="container">
@@ -39,7 +44,7 @@
     </form>
   </header>
   <ul>
-  {#each $tasks as task}
+  {#each tasks as task}
     <Task
       key={task._id}
       task={task}
