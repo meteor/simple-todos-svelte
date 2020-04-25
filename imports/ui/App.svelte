@@ -5,7 +5,7 @@
   
   let newTask = "";
 
-  $: tasks = useTracker(() => Tasks.find({}).fetch());
+  $: tasks = useTracker(() => Tasks.find({}, { sort: { createdAt: -1 } }).fetch());
 
  function handleSubmit(event) {
       Tasks.insert({
