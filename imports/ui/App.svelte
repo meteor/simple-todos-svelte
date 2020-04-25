@@ -7,6 +7,16 @@
 
   $: tasks = useTracker(() => Tasks.find({}).fetch());
 
+ function handleSubmit(event) {
+      Tasks.insert({
+        text: newTask,
+        createdAt: new Date() // current time
+      });
+
+      // Clear form
+      newTask = "";
+  };
+
 </script>
  
 <div class="container">
