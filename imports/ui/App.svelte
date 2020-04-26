@@ -7,8 +7,12 @@
 
   let newTask = "";
   let hideCompleted = false;
-
+  let tasks = [];
+  let currentUser;
+  
   $: incompleteCount = useTracker(() => Tasks.find({ checked: { $ne: true } }).count()); 
+
+  $: currentUser = useTracker(() => Meteor.user());
 
   const taskStore = Tasks.find({}, { sort: { createdAt: -1 } });
   $: {
@@ -18,7 +22,7 @@
       }
   };
 
- function handleSubmit(event) {
+  function handleSubmit(event) {
       Tasks.insert({
         text: newTask,
         createdAt: new Date(), // current time
