@@ -33,6 +33,7 @@
       // Clear form
       newTask = "";
   };
+
 </script>
  
 <div class="container">
