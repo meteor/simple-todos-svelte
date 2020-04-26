@@ -3,6 +3,7 @@
 
   export let key;
   export let task;
+  let showPrivateButton;
 
   function toggleChecked() {
       // Set the checked property to the opposite of its current value
