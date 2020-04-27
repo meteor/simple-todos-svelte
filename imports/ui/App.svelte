@@ -1,8 +1,9 @@
 <script>
   import { useTracker } from 'meteor/rdb:svelte-meteor-data';  
+  import { BlazeTemplate } from 'meteor/svelte:blaze-integration';
   import Task from './Task.svelte';
   import { Tasks } from '../api/tasks.js'
-  
+
   let newTask = "";
   let hideCompleted = false;
 
@@ -37,6 +38,9 @@
       />
       Hide Completed Tasks
     </label>
+    
+    <BlazeTemplate template="loginButtons" />
+
     <form class="new-task" on:submit|preventDefault={handleSubmit}>
       <input
         type="text"
