@@ -25,3 +25,4 @@ rdb:svelte-meteor-data
 static-html
 accounts-ui
 accounts-password
+svelte:blaze-integration
