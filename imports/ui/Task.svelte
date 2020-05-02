@@ -1,9 +1,19 @@
 <script>
+  import { useTracker } from 'meteor/rdb:svelte-meteor-data';  
   import { Tasks } from "../api/tasks.js";
 
   export let key;
   export let task;
   let showPrivateButton;
+
+  $: currentUser = useTracker(() => Meteor.user());
+
+  $: {
+    showPrivateButton = false;
+    if($currentUser){
+      showPrivateButton = task.owner === $currentUser._id;
+    }
+  }
 
   function toggleChecked() {
       // Set the checked property to the opposite of its current value
