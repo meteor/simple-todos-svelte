@@ -38,7 +38,7 @@
 <div class="container">
   <header>
     <h1>Todo List ({ $incompleteCount })</h1>
-    <label className="hide-completed">
+    <label class="hide-completed">
       <input
         type="checkbox"
         bind:checked={hideCompleted}
