@@ -11,7 +11,7 @@
     "@babel/runtime": "^7.8.3",
     "jquery": "^3.4.1",
     "meteor-node-stubs": "^1.0.0",
-    "svelte": "^3.20.1"
+    "svelte": "^3.49.0"
   },
   "meteor": {
     "mainModule": {
